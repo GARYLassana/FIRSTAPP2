@@ -1,0 +1,36 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Computer",
+      "price": 4300,
+      "quantity": 600,
+      "selected": true,
+      "available": true
+    },
+    {
+      "id": 2,
+      "name": "Printer",
+      "price": 400,
+      "quantity": 200,
+      "selected": false,
+      "available": false
+    },
+    {
+      "id": 3,
+      "name": "Smartphone",
+      "price": 8600,
+      "quantity": 1400,
+      "selected": true,
+      "available": false
+    },
+    {
+      "id": 4,
+      "name": "Airpods",
+      "price": 800,
+      "quantity": 100,
+      "selected": false,
+      "available": true
+    }
+  ]
+}
