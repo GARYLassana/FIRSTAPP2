@@ -1,16 +1,28 @@
 <div class="addNewProduct" *ngIf="productFormGroup">
   <form [formGroup]="productFormGroup">
     <div class="form-group mt-3">
-      <label for="">Name</label>
-      <input formControlName="name" type="text" class="form-control">
+      <label for="">Name : </label>
+      <input type="text" class="form-control"
+        [ngClass]="{'is-invalid' : submitted && productFormGroup.controls.name.errors}" formControlName="name">
+      <div *ngIf="submitted && productFormGroup.controls.name.errors" class="invalid-feedback">
+        <div *ngIf="productFormGroup.controls.name.errors.required"> Name is required</div>
+      </div>
     </div>
     <div class="form-group mt-3 mb-3">
       <label for="">Price</label>
-      <input formControlName="price" type="text" class="form-control">
+      <input formControlName="price" type="text" class="form-control"
+        [ngClass]="{'is-invalid' : submitted && productFormGroup.controls.price.errors}">
+      <div *ngIf="submitted && productFormGroup.controls.price.errors" class="invalid-feedback">
+        <div *ngIf="productFormGroup.controls.price.errors.required"> Price is required</div>
+      </div>
     </div>
     <div class="form-group">
       <label for="">Quantity</label>
-      <input formControlName="quantity" type="text" class="form-control">
+      <input formControlName="quantity" type="text" class="form-control"
+        [ngClass]="{'is-invalid' : submitted && productFormGroup.controls.quantity.errors}">
+      <div *ngIf="submitted && productFormGroup.controls.quantity.errors" class="invalid-feedback">
+        <div *ngIf="productFormGroup.controls.quantity.errors.required"> Price is required</div>
+      </div>
     </div>
     <div class="form-check mt-3 mb-3">
       <input formControlName="selected" class="form-check-input" type="checkbox" value="" id="flexCheckDefault">

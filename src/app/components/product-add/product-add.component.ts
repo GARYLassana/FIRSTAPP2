@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
@@ -8,11 +8,11 @@ import { ProductsService } from 'src/app/services/products.service';
   styleUrls: ['./product-add.component.scss']
 })
 export class ProductAddComponent implements OnInit {
-  productFormGroup?: FormGroup;
-  result: any;
+  productFormGroup: any; // ou productFormGroup?: FormGroup;
+  submitted: boolean = false;
   constructor(
-    private fb: FormBuilder,
-    private productsService: ProductsService) {
+    public fb: FormBuilder,
+    public productsService: ProductsService) {
 
   }
 
@@ -27,9 +27,10 @@ export class ProductAddComponent implements OnInit {
   }
 
   onSaveProduct() {
-    this.result = this.productsService.saveProduct(this.productFormGroup?.value).subscribe({
+    this.submitted = true;
+    if (this.productFormGroup.invalid) return;
+    this.productsService.saveProduct(this.productFormGroup?.value).subscribe({
       next: (data) => {
-        this.result = data;
         alert("success saving product");
       }
     });

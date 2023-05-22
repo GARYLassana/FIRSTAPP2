@@ -1,18 +1,10 @@
 {
   "products": [
     {
-      "name": "SmartPhone",
-      "price": 4920,
-      "quantity": 410,
-      "selected": false,
-      "available": false,
-      "id": 11
-    },
-    {
       "name": "Computer",
       "price": 4920,
       "quantity": 410,
-      "selected": true,
+      "selected": false,
       "available": false,
       "id": 12
     },
