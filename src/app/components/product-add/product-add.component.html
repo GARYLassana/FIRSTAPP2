@@ -1,4 +1,4 @@
-<div class="addNewProduct">
+<div class="addNewProduct" *ngIf="productFormGroup">
   <form [formGroup]="productFormGroup">
     <div class="form-group mt-3">
       <label for="">Name</label>
