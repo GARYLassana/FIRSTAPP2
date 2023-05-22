@@ -1,16 +1,30 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 
+import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
+import { HomeComponent } from './components/home/home.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { ProductAddComponent } from './components/product-add/product-add.component';
+import { ProductsComponent } from './components/products/products.component';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavBarComponent,
+    ProductsComponent,
+    HomeComponent,
+    ProductAddComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
