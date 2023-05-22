@@ -11,8 +11,8 @@ export class ProductAddComponent implements OnInit {
   productFormGroup: any; // ou productFormGroup?: FormGroup;
   submitted: boolean = false;
   constructor(
-    public fb: FormBuilder,
-    public productsService: ProductsService) {
+    private fb: FormBuilder,
+    private productsService: ProductsService) {
 
   }
 

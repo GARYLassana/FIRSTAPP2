@@ -25,20 +25,20 @@
       "id": 14
     },
     {
-      "name": "Lassana",
+      "id": 15,
+      "name": "Lassana GARY",
       "price": "300",
       "quantity": "55",
       "selected": true,
-      "available": true,
-      "id": 15
+      "available": true
     },
     {
-      "name": "test",
-      "price": "12",
-      "quantity": "455",
-      "selected": false,
-      "available": true,
-      "id": 16
+      "id": 16,
+      "name": "MAMADOU GARY",
+      "price": "1241",
+      "quantity": "4554",
+      "selected": true,
+      "available": true
     }
   ]
 }
