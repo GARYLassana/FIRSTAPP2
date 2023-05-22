@@ -12,7 +12,7 @@
       "name": "Computer",
       "price": 4920,
       "quantity": 410,
-      "selected": false,
+      "selected": true,
       "available": false,
       "id": 12
     },
@@ -20,7 +20,7 @@
       "name": "Portable",
       "price": 4920,
       "quantity": 410,
-      "selected": false,
+      "selected": true,
       "available": false,
       "id": 13
     },
@@ -28,7 +28,7 @@
       "name": "Portable",
       "price": 4920,
       "quantity": 410,
-      "selected": false,
+      "selected": true,
       "available": false,
       "id": 14
     },
