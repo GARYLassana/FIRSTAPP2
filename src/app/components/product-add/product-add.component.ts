@@ -10,10 +10,10 @@ import { ProductsService } from 'src/app/services/products.service';
 export class ProductAddComponent implements OnInit {
   productFormGroup: any; // ou productFormGroup?: FormGroup;
   submitted: boolean = false;
+
   constructor(
     private fb: FormBuilder,
     private productsService: ProductsService) {
-
   }
 
   ngOnInit(): void {
