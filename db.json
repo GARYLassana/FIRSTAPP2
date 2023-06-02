@@ -1,0 +1,44 @@
+{
+  "products": [
+    {
+      "id": 12,
+      "name": "Computer2",
+      "price": 4920,
+      "quantity": 410,
+      "selected": false,
+      "available": false
+    },
+    {
+      "name": "Portable",
+      "price": 4920,
+      "quantity": 410,
+      "selected": true,
+      "available": false,
+      "id": 13
+    },
+    {
+      "name": "Portable",
+      "price": 4920,
+      "quantity": 410,
+      "selected": true,
+      "available": false,
+      "id": 14
+    },
+    {
+      "id": 15,
+      "name": "Lassana GARY",
+      "price": "300",
+      "quantity": "55",
+      "selected": true,
+      "available": true
+    },
+    {
+      "id": 16,
+      "name": "MAMADOU GARY",
+      "price": "1241",
+      "quantity": "4554",
+      "selected": true,
+      "available": true
+    }
+  ]
+}
