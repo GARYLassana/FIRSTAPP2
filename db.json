@@ -12,7 +12,7 @@
       "name": "Portable",
       "price": 4920,
       "quantity": 410,
-      "selected": true,
+      "selected": false,
       "available": false,
       "id": 13
     },
@@ -20,7 +20,7 @@
       "name": "Portable",
       "price": 4920,
       "quantity": 410,
-      "selected": true,
+      "selected": false,
       "available": false,
       "id": 14
     },
@@ -29,7 +29,7 @@
       "name": "Lassana GARY",
       "price": "300",
       "quantity": "55",
-      "selected": true,
+      "selected": false,
       "available": true
     },
     {
@@ -39,6 +39,22 @@
       "quantity": "4554",
       "selected": true,
       "available": true
+    },
+    {
+      "id": 17,
+      "name": "nouveau produit1",
+      "price": "2000",
+      "quantity": "15",
+      "selected": true,
+      "available": true
+    },
+    {
+      "name": "newProduct",
+      "price": "200",
+      "quantity": "55",
+      "selected": false,
+      "available": false,
+      "id": 18
     }
   ]
 }

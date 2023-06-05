@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { Observable, catchError, map, of, startWith } from 'rxjs';
 import { Product } from 'src/app/model/product.model';
 import { ProductsService } from 'src/app/services/products.service';
-import { AppDataState, DataStateEnum } from 'src/app/state/product.state';
+import { AppDataState, DataStateEnum, ProductActionsTypes } from 'src/app/state/product.state';
 
 @Component({
   selector: 'app-products',
@@ -127,5 +127,22 @@ export class ProductsComponent implements OnInit {
 
   onEdit(p: Product) {
     this.router.navigateByUrl("/editProduct/" + p.id);
+  }
+
+  onActionEvent($event: any) {
+    switch ($event) {
+      case ProductActionsTypes.GET_ALL_PRODUCTS: this.onGetAllProduct();
+        break;
+      case ProductActionsTypes.GET_AVAILABLE_PRODUCTS: this.onGetAvailableProduct();
+        break;
+      case ProductActionsTypes.GET_SELECT_PRODUCTS: this.onGetSelectedProduct();
+        break;
+      case ProductActionsTypes.NEW_PRODUCTS: this.onNewProduct();
+        break;
+      // case ProductActionsTypes.EDIT_PRODUCTS: this.onEdit(p: Product);
+      //   break;
+      // case ProductActionsTypes.SEARCH_PRODUCTS: this.onSearch(dataForm);
+      //   break;
+    }
   }
 }
