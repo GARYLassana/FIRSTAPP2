@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { Observable, catchError, map, of, startWith } from 'rxjs';
 import { Product } from 'src/app/model/product.model';
 import { ProductsService } from 'src/app/services/products.service';
-import { AppDataState, DataStateEnum, ProductActionsTypes } from 'src/app/state/product.state';
+import { ActionEvent, AppDataState, DataStateEnum, ProductActionsTypes } from 'src/app/state/product.state';
 
 @Component({
   selector: 'app-products',
@@ -21,7 +21,7 @@ export class ProductsComponent implements OnInit {
   */
 
   // Troisième manière d'utiliser Observable avec gestion des erreurs
-  products$!: Observable<AppDataState<Product[]>>;
+  products$: Observable<AppDataState<Product[]>> | null = null;
   readonly DataStateEnum = DataStateEnum;
 
   constructor(
@@ -34,7 +34,7 @@ export class ProductsComponent implements OnInit {
   /**
    * @file récuperation de tous les données
    */
-  onGetAllProduct() {
+  onGetAllProducts() {
     /*Première manière d'utiliser Observable
       this.productService.getAllProducts().subscribe({
         next: (data) => {
@@ -61,7 +61,7 @@ export class ProductsComponent implements OnInit {
   /**
    * @file récuperation des données selectionnées
    */
-  onGetSelectedProduct() {
+  onGetSelectedProducts() {
     this.products$ = this.productService.getSelectedProducts().pipe(
       map(data => ({ dataState: DataStateEnum.LOADED, data: data })),
       startWith({ dataState: DataStateEnum.LOADING }),
@@ -72,7 +72,7 @@ export class ProductsComponent implements OnInit {
   /**
    * @file récuperation de données invalide
    */
-  onGetAvailableProduct() {
+  onGetAvailableProducts() {
     this.products$ = this.productService.getAvailableProducts().pipe(
       map(data => ({ dataState: DataStateEnum.LOADED, data: data })),
       startWith({ dataState: DataStateEnum.LOADING }),
@@ -113,7 +113,7 @@ export class ProductsComponent implements OnInit {
     let alert = confirm('Etes vous sûr de vouloir supprimer ?');
     if (alert = true) {
       this.productService.deleteProduct(p).subscribe(data => {
-        this.onGetAllProduct();
+        this.onGetAllProducts();
       });
     }
   }
@@ -129,20 +129,24 @@ export class ProductsComponent implements OnInit {
     this.router.navigateByUrl("/editProduct/" + p.id);
   }
 
-  onActionEvent($event: any) {
-    switch ($event) {
-      case ProductActionsTypes.GET_ALL_PRODUCTS: this.onGetAllProduct();
+  onActionEvent($event: ActionEvent) {
+    switch ($event.type) {
+      case ProductActionsTypes.GET_ALL_PRODUCTS: this.onGetAllProducts();
         break;
-      case ProductActionsTypes.GET_AVAILABLE_PRODUCTS: this.onGetAvailableProduct();
+      case ProductActionsTypes.GET_SELECTED_PRODUCTS: this.onGetSelectedProducts();
         break;
-      case ProductActionsTypes.GET_SELECT_PRODUCTS: this.onGetSelectedProduct();
+      case ProductActionsTypes.GET_AVAILABLE_PRODUCTS: this.onGetAvailableProducts();
         break;
       case ProductActionsTypes.NEW_PRODUCTS: this.onNewProduct();
         break;
-      // case ProductActionsTypes.EDIT_PRODUCTS: this.onEdit(p: Product);
-      //   break;
-      // case ProductActionsTypes.SEARCH_PRODUCTS: this.onSearch(dataForm);
-      //   break;
+      case ProductActionsTypes.SEARCH_PRODUCTS: this.onSearch($event.payload);
+        break;
+      case ProductActionsTypes.SELECT_PRODUCTS: this.onSelect($event.payload);
+        break;
+      case ProductActionsTypes.DELETE_PRODUCTS: this.onDelete($event.payload);
+        break;
+      case ProductActionsTypes.EDIT_PRODUCTS: this.onEdit($event.payload);
+        break;
     }
   }
 }

@@ -4,7 +4,7 @@ import { ActionEvent, ProductActionsTypes } from 'src/app/state/product.state';
 @Component({
   selector: 'app-products-nav-bar',
   templateUrl: './products-nav-bar.component.html',
-  styleUrls: ['./products-nav-bar.component.css']
+  styleUrls: ['./products-nav-bar.component.scss']
 })
 export class ProductsNavBarComponent implements OnInit {
 
@@ -15,13 +15,33 @@ export class ProductsNavBarComponent implements OnInit {
   ngOnInit() {
   }
 
-  onGetAllProduct() {
-    this.productEventEmitter.emit(ProductActionsTypes.GET_ALL_PRODUCTS);
+  onGetAllProducts() {
+    this.productEventEmitter.emit({
+      type: ProductActionsTypes.GET_ALL_PRODUCTS,
+      payload: null
+    });
   }
 
-  onGetSelectedProduct() {
-
+  onGetSelectedProducts() {
+    this.productEventEmitter.emit({
+      type: ProductActionsTypes.GET_SELECTED_PRODUCTS
+    });
   }
-  onGetAvailableProduct() { }
-  onNewProduct() { }
+  onGetAvailableProducts() {
+    this.productEventEmitter.emit({
+      type: ProductActionsTypes.GET_AVAILABLE_PRODUCTS
+    });
+  }
+  onNewProduct() {
+    this.productEventEmitter.emit({
+      type: ProductActionsTypes.NEW_PRODUCTS
+    });
+  }
+
+  onSearch(dataForm: any) {
+    this.productEventEmitter.emit({
+      type: ProductActionsTypes.SEARCH_PRODUCTS,
+      payload: dataForm
+    });
+  }
 }

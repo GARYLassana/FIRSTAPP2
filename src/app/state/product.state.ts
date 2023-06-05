@@ -12,13 +12,15 @@ export interface AppDataState<T> {
 }
 export enum ProductActionsTypes {
   GET_ALL_PRODUCTS = "[Product] Get all produsts",
-  GET_SELECT_PRODUCTS = "[Product] Get delected produsts",
+  GET_SELECTED_PRODUCTS = "[Product] Get delected produsts",
   GET_AVAILABLE_PRODUCTS = "[Product] Get availabled produsts",
   SEARCH_PRODUCTS = "[Product] Search produsts",
   NEW_PRODUCTS = "[Product] New produsts",
-  EDIT_PRODUCTS = "[Product] Edit produsts"
+  SELECT_PRODUCTS = "[Product] Select produsts",
+  EDIT_PRODUCTS = "[Product] Edit produsts",
+  DELETE_PRODUCTS = "[Product] Delete produsts"
 }
 export interface ActionEvent {
   type: ProductActionsTypes,
-  payload: any
+  payload?: any
 }

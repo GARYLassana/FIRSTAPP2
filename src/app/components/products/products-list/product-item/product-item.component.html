@@ -1,0 +1,18 @@
+<tr *ngIf="product">
+  <th scope="row">{{product.id}}</th>
+  <th>{{product.name}}</th>
+  <th>{{product.price}}</th>
+  <th>{{product.quantity}}</th>
+  <th>{{product.selected}}</th>
+  <th>{{product.available}}</th>
+  <th>
+    <button class="btn" [ngClass]="product.selected ? 'btn-success' : 'btn-danger'" (click)="onSelect(product)">
+      <span *ngIf="product.selected">Unselect</span>
+      <span *ngIf="!product.selected">Select</span>
+    </button>
+  </th>
+  <th>
+    <i class="bi bi-pencil-square text-warning me-3 cursorPointer" (click)="onEdit(product)"></i>
+    <i class="bi bi-trash text-danger cursorPointer" (click)="onDelete(product)"></i>
+  </th>
+</tr>
