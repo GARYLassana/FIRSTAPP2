@@ -79,9 +79,6 @@ export class ProductsService {
     return this.http.post<Product>(host + "/products", product);
   }
 
-
-
-
   /**
    * @file nous recuperons d'abord le produit à modifier getProduct()
    * @file modification d'un produit updateProduct()
