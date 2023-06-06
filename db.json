@@ -21,7 +21,7 @@
       "name": "PortableAA",
       "price": 4920,
       "quantity": 410,
-      "selected": false,
+      "selected": true,
       "available": false
     },
     {
@@ -29,12 +29,12 @@
       "name": "Lassana GARY",
       "price": "300",
       "quantity": "55",
-      "selected": false,
+      "selected": true,
       "available": true
     },
     {
       "id": 16,
-      "name": "MAMADOU GARY",
+      "name": "Lassana GARY",
       "price": "1241",
       "quantity": "4554",
       "selected": true,
