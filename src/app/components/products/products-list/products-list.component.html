@@ -14,7 +14,7 @@
   <!-- Le tableau des données -->
   <ng-container *ngSwitchCase="DataStateEnum.LOADED">
     <!-- <div class="container table-responsive"> -->
-    <table class="table table-striped table-hover align-middle">
+    <table class="table">
       <thead class="sticky-top">
         <tr>
           <th scope="col">ID</th>
@@ -28,8 +28,7 @@
         </tr>
       </thead>
       <tbody>
-        <app-product-item *ngFor="let p of result.data" [product]="p"
-          style="display: contents; text-align: left;"></app-product-item>
+        <app-product-item *ngFor="let p of result.data" [product]="p" style="display: contents"></app-product-item>
       </tbody>
     </table>
   </ng-container>

@@ -21,7 +21,7 @@
       "name": "nouveau produit1",
       "price": "44",
       "quantity": "5822",
-      "selected": true,
+      "selected": false,
       "available": true
     },
     {
