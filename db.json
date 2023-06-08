@@ -2,17 +2,17 @@
   "products": [
     {
       "id": 15,
-      "name": "Lassana GARY",
+      "name": "Lassana aa",
       "price": "300",
       "quantity": "55",
-      "selected": true,
+      "selected": false,
       "available": true
     },
     {
       "name": "newProduct",
       "price": "200",
       "quantity": "55",
-      "selected": false,
+      "selected": true,
       "available": false,
       "id": 18
     },
@@ -21,7 +21,7 @@
       "name": "nouveau produit1",
       "price": "44",
       "quantity": "5822",
-      "selected": false,
+      "selected": true,
       "available": true
     },
     {
@@ -31,6 +31,14 @@
       "selected": true,
       "available": true,
       "id": 20
+    },
+    {
+      "id": 21,
+      "name": "ssbvvfgh",
+      "price": 0,
+      "quantity": 0,
+      "selected": false,
+      "available": true
     }
   ]
 }

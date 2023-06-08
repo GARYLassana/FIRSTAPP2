@@ -9,6 +9,7 @@ import { Product } from '../model/product.model';
 })
 export class ProductsService {
 
+  public host = environment.host;
   constructor(private http: HttpClient) {
 
   }
@@ -18,8 +19,8 @@ export class ProductsService {
    * @returns
    */
   getAllProducts(): Observable<Product[]> {
-    let host = (Math.random() > 0.1) ? environment.host : environment.unreachableHost;
-    return this.http.get<Product[]>(host + "/products");
+    // let host = (Math.random() > 0.1) ? environment.host : environment.unreachableHost;
+    return this.http.get<Product[]>(this.host + "/products");
   }
 
   /**
@@ -27,8 +28,8 @@ export class ProductsService {
    * @returns
    */
   getSelectedProducts(): Observable<Product[]> {
-    let host = (Math.random() > 0.1) ? environment.host : environment.unreachableHost;
-    return this.http.get<Product[]>(host + "/products?selected=true");
+    // let host = (Math.random() > 0.1) ? environment.host : environment.unreachableHost;
+    return this.http.get<Product[]>(this.host + "/products?selected=true");
   }
 
   /**
@@ -36,8 +37,8 @@ export class ProductsService {
  * @returns
  */
   getAvailableProducts(): Observable<Product[]> {
-    let host = (Math.random() > 0.1) ? environment.host : environment.unreachableHost;
-    return this.http.get<Product[]>(host + "/products?available=true");
+    // let host = (Math.random() > 0.1) ? environment.host : environment.unreachableHost;
+    return this.http.get<Product[]>(this.host + "/products?available=true");
   }
 
   /**
@@ -45,8 +46,8 @@ export class ProductsService {
  * @returns
  */
   searchProducts(keyword: string): Observable<Product[]> {
-    let host = environment.host;
-    return this.http.get<Product[]>(host + "/products?name_like =" + keyword);
+    // let host = environment.host;
+    return this.http.get<Product[]>(this.host + "/products?name_like =" + keyword);
   }
 
   /**
@@ -54,9 +55,9 @@ export class ProductsService {
  * @returns
  */
   selectProduct(product: Product): Observable<Product> {
-    let host = environment.host;
+    // let host = environment.host;
     product.selected = !product.selected;
-    return this.http.put<Product>(host + "/products/" + product.id, product);
+    return this.http.put<Product>(this.host + "/products/" + product.id, product);
   }
 
   /**
@@ -64,8 +65,8 @@ export class ProductsService {
  * @returns
  */
   deleteProduct(product: Product): Observable<void> {
-    let host = environment.host;
-    return this.http.delete<void>(host + "/products/" + product.id);
+    // let host = environment.host;
+    return this.http.delete<void>(this.host + "/products/" + product.id);
   }
 
 
@@ -75,8 +76,8 @@ export class ProductsService {
    * @returns
    */
   saveProduct(product: Product): Observable<Product> {
-    let host = environment.host;
-    return this.http.post<Product>(host + "/products", product);
+    // let host = environment.host;
+    return this.http.post<Product>(this.host + "/products", product);
   }
 
   /**
@@ -86,12 +87,12 @@ export class ProductsService {
    * @returns
    */
   getProduct(id: number): Observable<Product> {
-    let host = environment.host;
-    return this.http.get<Product>(host + "/products/" + id);
+    // let host = environment.host;
+    return this.http.get<Product>(this.host + "/products/" + id);
   }
 
   updateProduct(product: Product): Observable<Product> {
-    let host = environment.host;
-    return this.http.put<Product>(host + "/products/" + product.id, product);
+    // let host = environment.host;
+    return this.http.put<Product>(this.host + "/products/" + product.id, product);
   }
 }
